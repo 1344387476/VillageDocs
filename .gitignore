@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+installer/output/
+runtime/libreoffice/
+runtime/downloads/
+*.log
+

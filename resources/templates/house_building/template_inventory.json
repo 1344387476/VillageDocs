@@ -1,0 +1,86 @@
+{
+  "sources": [
+    {
+      "code": "01",
+      "path": "01 申请表.docx",
+      "sha256": "48491DC618AC8EAD015CF606EBDB8E84B3021FA86F16768FB0451ABF0553D879"
+    },
+    {
+      "code": "02",
+      "path": "02 审批表模板.docx",
+      "sha256": "1357874DBA982060745F55919D6DA00730CB7DB5BE8E4D4DAFD4B61BBBF67EBB"
+    },
+    {
+      "code": "03",
+      "path": "03  农村宅基地使用承诺书.docx",
+      "sha256": "A16A1965FDA6BF7F4DDC5FE8293BF258250E8368A2D36495AEEBBEF2CAED44FA"
+    },
+    {
+      "code": "04",
+      "path": "04  建房申请书.doc",
+      "sha256": "7B6C638DB74732D5CC9EF3874F662C3F622476EA09A42A2248CD4FB678B54286"
+    },
+    {
+      "code": "05",
+      "path": "05   唯一住房证明.docx",
+      "sha256": "2435A5D7B66918EC58C3918EDCDC8D50C0DCAC76C5198C0F17328FDBE89D4866"
+    },
+    {
+      "code": "06",
+      "path": "承诺书.doc",
+      "sha256": "D80B37AF1DB0281F06DB045F4F3279B5E1BF57BA17F22AD6F00E65D9BED05953"
+    },
+    {
+      "code": "07",
+      "path": "村民建房四邻意见表1.doc",
+      "sha256": "10CF0A504C189C5D863012A8E7129DF07A37A6A067B98B02ABF1E8A4B331EA58"
+    },
+    {
+      "code": "11",
+      "path": "公示模板.doc",
+      "sha256": "6AC2C1FBDDCDB08FEDBB2D0AC46F9738D3DC0C7AEEE132B6875FFBC0E4EE129D"
+    }
+  ],
+  "normalized": [
+    {
+      "code": "01",
+      "path": "01_application.docx",
+      "sha256": "F72D519A0C2DC2B052764DF95D58633E3985C90B09C4974E4E3A4A0F31756BBE"
+    },
+    {
+      "code": "02",
+      "path": "02_approval.docx",
+      "sha256": "FB2CF971A3A73FDF52ADC7A82F64FE14ABE6B71F45C66970486FC225ABB29198"
+    },
+    {
+      "code": "03",
+      "path": "03_homestead_commitment.docx",
+      "sha256": "F619EB00A9358626FF82573ADB4BB2235895DF4C67F0F882C19A4F5057E58D7F"
+    },
+    {
+      "code": "04",
+      "path": "04_building_application.docx",
+      "sha256": "BC7A54F586D4F47B5804867A309FF6FC7B503E6B764E95571EB22E0025AC29F7"
+    },
+    {
+      "code": "05",
+      "path": "05_only_house_proof.docx",
+      "sha256": "F69515818570DA140937A5DFD93168139689AE5F66FE2EA30CFC631BB116C024"
+    },
+    {
+      "code": "06",
+      "path": "06_town_commitment.docx",
+      "sha256": "3646BE0A13221079E00EE198A7478F03D33AF5F5FAD929BA8DC6FDBFA5F35C14"
+    },
+    {
+      "code": "07",
+      "path": "07_neighbor_opinion.docx",
+      "sha256": "283C5B8666A5AEA3DAC950444945293D50922FD203E2F5CED9EB11E033AFA95F"
+    },
+    {
+      "code": "11",
+      "path": "11_public_notice.docx",
+      "sha256": "8C42D938D85CF1D81B26E5BA4E2750152836FA8B5E156231930A319B826AF586"
+    }
+  ]
+}

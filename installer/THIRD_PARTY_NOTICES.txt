@@ -1,0 +1,15 @@
+村务材料管理 V1
+
+本产品包含以下开源组件，完整许可文本随各组件发行包提供：
+
+- Python（Python Software Foundation License）
+- PySide6 / Qt（LGPLv3/GPLv3，按动态链接方式分发）
+- LibreOffice（MPLv2/LGPLv3+）
+- python-docx（MIT）
+- pypdf（BSD-3-Clause）
+- Pillow（HPND）
+- pillow-heif（BSD-3-Clause）
+- ReportLab（BSD）
+- Send2Trash（BSD）
+
+应用本身不向外部服务上传用户数据，不包含遥测或在线账户功能。

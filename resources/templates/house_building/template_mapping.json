@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "templates": [
+    {
+      "material_code": "01", "name": "申请表", "sort_order": 1,
+      "template": "01_application.docx", "output_name": "01_申请表.docx",
+      "fields": [
+        {"key":"applicant.name","placeholder":"{{applicant.name}}","kind":"AUTO"},
+        {"key":"applicant.gender","placeholder":"{{applicant.gender}}","kind":"AUTO"},
+        {"key":"applicant.age","placeholder":"{{applicant.age}}","kind":"AUTO"},
+        {"key":"applicant.phone","placeholder":"{{applicant.phone}}","kind":"AUTO"},
+        {"key":"applicant.id_number","placeholder":"{{applicant.id_number}}","kind":"AUTO"},
+        {"key":"applicant.household_location","placeholder":"{{applicant.household_location}}","kind":"AUTO","fit_chars":20,"min_font_size":5.5},
+        {"key":"family_members.0.name","placeholder":"{{family_members.0.name}}","kind":"AUTO","fit_chars":4,"min_font_size":7},
+        {"key":"family_members.0.age","placeholder":"{{family_members.0.age}}","kind":"AUTO"},
+        {"key":"family_members.0.relation","placeholder":"{{family_members.0.relation}}","kind":"AUTO"},
+        {"key":"family_members.0.id_number","placeholder":"{{family_members.0.id_number}}","kind":"AUTO"},
+        {"key":"family_members.0.household_location","placeholder":"{{family_members.0.household_location}}","kind":"AUTO","fit_chars":16,"min_font_size":5.5},
+        {"key":"family_members.1.name","placeholder":"{{family_members.1.name}}","kind":"AUTO","fit_chars":4,"min_font_size":7},
+        {"key":"family_members.1.age","placeholder":"{{family_members.1.age}}","kind":"AUTO"},
+        {"key":"family_members.1.relation","placeholder":"{{family_members.1.relation}}","kind":"AUTO"},
+        {"key":"family_members.1.id_number","placeholder":"{{family_members.1.id_number}}","kind":"AUTO"},
+        {"key":"family_members.1.household_location","placeholder":"{{family_members.1.household_location}}","kind":"AUTO","fit_chars":16,"min_font_size":5.5},
+        {"key":"family_members.2.name","placeholder":"{{family_members.2.name}}","kind":"AUTO","fit_chars":4,"min_font_size":7},
+        {"key":"family_members.2.age","placeholder":"{{family_members.2.age}}","kind":"AUTO"},
+        {"key":"family_members.2.relation","placeholder":"{{family_members.2.relation}}","kind":"AUTO"},
+        {"key":"family_members.2.id_number","placeholder":"{{family_members.2.id_number}}","kind":"AUTO"},
+        {"key":"family_members.2.household_location","placeholder":"{{family_members.2.household_location}}","kind":"AUTO","fit_chars":16,"min_font_size":5.5},
+        {"key":"family_members.3.name","placeholder":"{{family_members.3.name}}","kind":"AUTO","fit_chars":4,"min_font_size":7},
+        {"key":"family_members.3.age","placeholder":"{{family_members.3.age}}","kind":"AUTO"},
+        {"key":"family_members.3.relation","placeholder":"{{family_members.3.relation}}","kind":"AUTO"},
+        {"key":"family_members.3.id_number","placeholder":"{{family_members.3.id_number}}","kind":"AUTO"},
+        {"key":"family_members.3.household_location","placeholder":"{{family_members.3.household_location}}","kind":"AUTO","fit_chars":16,"min_font_size":5.5},
+        {"key":"existing_house.homestead_area","placeholder":"{{existing_house.homestead_area}}","kind":"AUTO","formatter":"number"},
+        {"key":"existing_house.building_area","placeholder":"{{existing_house.building_area}}","kind":"AUTO","formatter":"number"},
+        {"key":"existing_house.ownership_certificate_no","placeholder":"{{existing_house.ownership_certificate_no}}","kind":"AUTO"},
+        {"key":"existing_house.disposal_type","placeholder":"{{existing_house.disposal_type}}","kind":"AUTO"},
+        {"key":"existing_house.disposal_area","placeholder":"{{existing_house.disposal_area}}","kind":"AUTO","formatter":"number"},
+        {"key":"house.homestead_area","placeholder":"{{house.homestead_area}}","kind":"AUTO","formatter":"number"},
+        {"key":"house.footprint_area","placeholder":"{{house.footprint_area}}","kind":"AUTO","formatter":"number"},
+        {"key":"house.address","placeholder":"{{house.address}}","kind":"AUTO"},
+        {"key":"house.east_boundary","placeholder":"{{house.east_boundary}}","kind":"AUTO"},
+        {"key":"house.south_boundary","placeholder":"{{house.south_boundary}}","kind":"AUTO"},
+        {"key":"house.west_boundary","placeholder":"{{house.west_boundary}}","kind":"AUTO"},
+        {"key":"house.north_boundary","placeholder":"{{house.north_boundary}}","kind":"AUTO"},
+        {"key":"house.land_type","placeholder":"{{house.land_type}}","kind":"AUTO"},
+        {"key":"house.building_area","placeholder":"{{house.building_area}}","kind":"AUTO","formatter":"number"},
+        {"key":"house.floors","placeholder":"{{house.floors}}","kind":"AUTO"},
+        {"key":"house.height","placeholder":"{{house.height}}","kind":"AUTO","formatter":"number"},
+        {"key":"house.neighbor_opinions_requested","placeholder":"{{house.neighbor_opinions_requested}}","kind":"AUTO","formatter":"yes_no"},
+        {"key":"house.application_reason","placeholder":"{{house.application_reason}}","kind":"AUTO","fit_chars":18,"min_font_size":7},
+        {"key":"signature.applicant","placeholder":"{{signature.applicant}}","kind":"SIGNATURE"},
+        {"key":"manual.application_date","placeholder":"{{manual.application_date}}","kind":"MANUAL_ONLY"},
+        {"key":"manual.group_opinion","placeholder":"{{manual.group_opinion}}","kind":"MANUAL_ONLY"},
+        {"key":"stamp.group","placeholder":"{{stamp.group}}","kind":"STAMP"},
+        {"key":"signature.group_responsible","placeholder":"{{signature.group_responsible}}","kind":"SIGNATURE"},
+        {"key":"manual.group_date","placeholder":"{{manual.group_date}}","kind":"MANUAL_ONLY"},
+        {"key":"manual.village_opinion","placeholder":"{{manual.village_opinion}}","kind":"MANUAL_ONLY"},
+        {"key":"stamp.village","placeholder":"{{stamp.village}}","kind":"STAMP"},
+        {"key":"signature.village_responsible","placeholder":"{{signature.village_responsible}}","kind":"SIGNATURE"},
+        {"key":"manual.village_date","placeholder":"{{manual.village_date}}","kind":"MANUAL_ONLY"}
+      ]
+    },
+    {
+      "material_code":"02","name":"审批表","sort_order":2,"template":"02_approval.docx","output_name":"02_审批表.docx",
+      "fields":[
+        {"key":"applicant.name","placeholder":"{{applicant.name}}","kind":"AUTO"}, {"key":"applicant.gender","placeholder":"{{applicant.gender}}","kind":"AUTO"},
+        {"key":"applicant.id_number","placeholder":"{{applicant.id_number}}","kind":"AUTO"}, {"key":"applicant.household_location","placeholder":"{{applicant.household_location}}","kind":"AUTO"},
+        {"key":"house.application_reason","placeholder":"{{house.application_reason}}","kind":"AUTO"}, {"key":"house.homestead_area","placeholder":"{{house.homestead_area}}","kind":"AUTO","formatter":"number"},
+        {"key":"house.footprint_area","placeholder":"{{house.footprint_area}}","kind":"AUTO","formatter":"number"}, {"key":"house.address","placeholder":"{{house.address}}","kind":"AUTO"},
+        {"key":"house.east_boundary","placeholder":"{{house.east_boundary}}","kind":"AUTO"}, {"key":"house.south_boundary","placeholder":"{{house.south_boundary}}","kind":"AUTO"},
+        {"key":"house.west_boundary","placeholder":"{{house.west_boundary}}","kind":"AUTO"}, {"key":"house.north_boundary","placeholder":"{{house.north_boundary}}","kind":"AUTO"},
+        {"key":"house.land_type","placeholder":"{{house.land_type}}","kind":"AUTO"},
+        {"key":"house.building_area","placeholder":"{{house.building_area}}","kind":"AUTO","formatter":"number"}, {"key":"house.floors","placeholder":"{{house.floors}}","kind":"AUTO"},
+        {"key":"house.height","placeholder":"{{house.height}}","kind":"AUTO","formatter":"number"},
+        {"key":"manual.natural_resources_opinion","placeholder":"{{manual.natural_resources_opinion}}","kind":"MANUAL_ONLY"}, {"key":"stamp.natural_resources","placeholder":"{{stamp.natural_resources}}","kind":"STAMP"},
+        {"key":"signature.natural_resources_responsible","placeholder":"{{signature.natural_resources_responsible}}","kind":"SIGNATURE"}, {"key":"manual.natural_resources_date","placeholder":"{{manual.natural_resources_date}}","kind":"MANUAL_ONLY"},
+        {"key":"manual.village_planning_opinion","placeholder":"{{manual.village_planning_opinion}}","kind":"MANUAL_ONLY"}, {"key":"stamp.village_planning","placeholder":"{{stamp.village_planning}}","kind":"STAMP"},
+        {"key":"signature.village_planning_responsible","placeholder":"{{signature.village_planning_responsible}}","kind":"SIGNATURE"}, {"key":"manual.village_planning_date","placeholder":"{{manual.village_planning_date}}","kind":"MANUAL_ONLY"},
+        {"key":"manual.agriculture_opinion","placeholder":"{{manual.agriculture_opinion}}","kind":"MANUAL_ONLY"}, {"key":"stamp.agriculture","placeholder":"{{stamp.agriculture}}","kind":"STAMP"},
+        {"key":"signature.agriculture_responsible","placeholder":"{{signature.agriculture_responsible}}","kind":"SIGNATURE"}, {"key":"manual.agriculture_date","placeholder":"{{manual.agriculture_date}}","kind":"MANUAL_ONLY"},
+        {"key":"manual.town_government_opinion","placeholder":"{{manual.town_government_opinion}}","kind":"MANUAL_ONLY"}, {"key":"stamp.town_government","placeholder":"{{stamp.town_government}}","kind":"STAMP"},
+        {"key":"signature.town_government_responsible","placeholder":"{{signature.town_government_responsible}}","kind":"SIGNATURE"}, {"key":"manual.town_government_date","placeholder":"{{manual.town_government_date}}","kind":"MANUAL_ONLY"},
+        {"key":"manual.location_diagram","placeholder":"{{manual.location_diagram}}","kind":"MANUAL_ONLY"}, {"key":"signature.surveyor","placeholder":"{{signature.surveyor}}","kind":"SIGNATURE"},
+        {"key":"manual.survey_date","placeholder":"{{manual.survey_date}}","kind":"MANUAL_ONLY"}, {"key":"signature.drafter","placeholder":"{{signature.drafter}}","kind":"SIGNATURE"},
+        {"key":"manual.drawing_date","placeholder":"{{manual.drawing_date}}","kind":"MANUAL_ONLY"}
+      ]
+    },
+    {
+      "material_code":"03","name":"农村宅基地使用承诺书","sort_order":3,"template":"03_homestead_commitment.docx","output_name":"03_农村宅基地使用承诺书.docx",
+      "fields":[
+        {"key":"applicant.town","placeholder":"{{applicant.town}}","kind":"AUTO","empty_text":"      "},
+        {"key":"applicant.administrative_village","placeholder":"{{applicant.administrative_village}}","kind":"AUTO","empty_text":"      "}, {"key":"applicant.group_name","placeholder":"{{applicant.group_name}}","kind":"AUTO","empty_text":"      "},
+        {"key":"signature.applicant","placeholder":"{{signature.applicant}}","kind":"SIGNATURE"}, {"key":"manual.commitment_date","placeholder":"{{manual.commitment_date}}","kind":"MANUAL_ONLY"}
+      ]
+    },
+    {
+      "material_code":"04","name":"建房申请书","sort_order":4,"template":"04_building_application.docx","output_name":"04_建房申请书.docx",
+      "fields":[
+        {"key":"applicant.town","placeholder":"{{applicant.town}}","kind":"AUTO","empty_text":"      "}, {"key":"applicant.administrative_village","placeholder":"{{applicant.administrative_village}}","kind":"AUTO","empty_text":"      "},
+        {"key":"applicant.natural_village","placeholder":"{{applicant.natural_village}}","kind":"AUTO","empty_text":"      "}, {"key":"applicant.name","placeholder":"{{applicant.name}}","kind":"AUTO","empty_text":"        "},
+        {"key":"applicant.household_population","placeholder":"{{applicant.household_population}}","kind":"AUTO","empty_text":"    "}, {"key":"house.application_reason","placeholder":"{{house.application_reason}}","kind":"AUTO","empty_text":"                "},
+        {"key":"house.build_type","placeholder":"{{house.build_type}}","kind":"AUTO","empty_text":"          "}, {"key":"signature.applicant","placeholder":"{{signature.applicant}}","kind":"SIGNATURE"},
+        {"key":"manual.application_date","placeholder":"{{manual.application_date}}","kind":"MANUAL_ONLY"},
+        {"key":"house.length","placeholder":"{{house.length}}","kind":"AUTO","formatter":"number","empty_text":"   "}, {"key":"house.width","placeholder":"{{house.width}}","kind":"AUTO","formatter":"number","empty_text":"   "},
+        {"key":"house.footprint_area","placeholder":"{{house.footprint_area}}","kind":"AUTO","formatter":"number","empty_text":"   "}, {"key":"house.building_area","placeholder":"{{house.building_area}}","kind":"AUTO","formatter":"number","empty_text":"    "},
+        {"key":"house.east_boundary","placeholder":"{{house.east_boundary}}","kind":"AUTO","empty_text":"            "}, {"key":"house.west_boundary","placeholder":"{{house.west_boundary}}","kind":"AUTO","empty_text":"      "},
+        {"key":"house.south_boundary","placeholder":"{{house.south_boundary}}","kind":"AUTO","empty_text":"         "}, {"key":"house.north_boundary","placeholder":"{{house.north_boundary}}","kind":"AUTO","empty_text":"           "},
+        {"key":"signature.village_responsible","placeholder":"{{signature.village_responsible}}","kind":"SIGNATURE"},
+        {"key":"stamp.village","placeholder":"{{stamp.village}}","kind":"STAMP"}, {"key":"manual.village_date","placeholder":"{{manual.village_date}}","kind":"MANUAL_ONLY"}
+      ]
+    },
+    {
+      "material_code":"05","name":"唯一住房证明","sort_order":5,"template":"05_only_house_proof.docx","output_name":"05_唯一住房证明.docx",
+      "fields":[
+        {"key":"applicant.town","placeholder":"{{applicant.town}}","kind":"AUTO","empty_text":"       "}, {"key":"applicant.administrative_village","placeholder":"{{applicant.administrative_village}}","kind":"AUTO","empty_text":"        "},
+        {"key":"applicant.village_committee_name","placeholder":"{{applicant.village_committee_name}}","kind":"AUTO","empty_text":"                "},
+        {"key":"applicant.group_name","placeholder":"{{applicant.group_name}}","kind":"AUTO","empty_text":"      "}, {"key":"applicant.name","placeholder":"{{applicant.name}}","kind":"AUTO","empty_text":"       "},
+        {"key":"applicant.id_number","placeholder":"{{applicant.id_number}}","kind":"AUTO","empty_text":"                         "}, {"key":"house.build_type","placeholder":"{{house.build_type}}","kind":"AUTO","empty_text":" 新 翻 改 扩 "}
+      ]
+    },
+    {
+      "material_code":"06","name":"镇政府承诺书","sort_order":6,"template":"06_town_commitment.docx","output_name":"06_镇政府承诺书.docx",
+      "fields":[
+        {"key":"applicant.administrative_village","placeholder":"{{applicant.administrative_village}}","kind":"AUTO","empty_text":"     "}, {"key":"applicant.name","placeholder":"{{applicant.name}}","kind":"AUTO","empty_text":"     "},
+        {"key":"house.build_type","placeholder":"{{house.build_type}}","kind":"AUTO","empty_text":"新（翻 改 扩）建"}, {"key":"applicant.town","placeholder":"{{applicant.town}}","kind":"AUTO","empty_text":"   镇"},
+        {"key":"stamp.town","placeholder":"{{stamp.town}}","kind":"STAMP"}, {"key":"manual.town_date","placeholder":"{{manual.town_date}}","kind":"MANUAL_ONLY"}
+      ]
+    },
+    {
+      "material_code":"07","name":"四邻意见","sort_order":7,"template":"07_neighbor_opinion.docx","output_name":"07_四邻意见.docx",
+      "fields":[
+        {"key":"applicant.town","placeholder":"{{applicant.town}}","kind":"AUTO"}, {"key":"applicant.administrative_village","placeholder":"{{applicant.administrative_village}}","kind":"AUTO"},
+        {"key":"applicant.name","placeholder":"{{applicant.name}}","kind":"AUTO"}, {"key":"applicant.id_number","placeholder":"{{applicant.id_number}}","kind":"AUTO"},
+        {"key":"applicant.household_population","placeholder":"{{applicant.household_population}}","kind":"AUTO"}, {"key":"house.address","placeholder":"{{house.address}}","kind":"AUTO"},
+        {"key":"house.building_area","placeholder":"{{house.building_area}}","kind":"AUTO","formatter":"number"}, {"key":"house.floors","placeholder":"{{house.floors}}","kind":"AUTO"},
+        {"key":"house.roof_type","placeholder":"{{house.roof_type}}","kind":"AUTO"}, {"key":"house.height","placeholder":"{{house.height}}","kind":"AUTO","formatter":"number"},
+        {"key":"house.application_reason","placeholder":"{{house.application_reason}}","kind":"AUTO"}, {"key":"house.build_type","placeholder":"{{house.build_type}}","kind":"AUTO"},
+        {"key":"house.footprint_area","placeholder":"{{house.footprint_area}}","kind":"AUTO","formatter":"number"}, {"key":"signature.applicant","placeholder":"{{signature.applicant}}","kind":"SIGNATURE"},
+        {"key":"manual.neighbor_east","placeholder":"{{manual.neighbor_east}}","kind":"MANUAL_ONLY"}, {"key":"manual.neighbor_east_phone","placeholder":"{{manual.neighbor_east_phone}}","kind":"MANUAL_ONLY"},
+        {"key":"manual.neighbor_south","placeholder":"{{manual.neighbor_south}}","kind":"MANUAL_ONLY"}, {"key":"manual.neighbor_south_phone","placeholder":"{{manual.neighbor_south_phone}}","kind":"MANUAL_ONLY"},
+        {"key":"manual.neighbor_west","placeholder":"{{manual.neighbor_west}}","kind":"MANUAL_ONLY"}, {"key":"manual.neighbor_west_phone","placeholder":"{{manual.neighbor_west_phone}}","kind":"MANUAL_ONLY"},
+        {"key":"manual.neighbor_north","placeholder":"{{manual.neighbor_north}}","kind":"MANUAL_ONLY"}, {"key":"manual.neighbor_north_phone","placeholder":"{{manual.neighbor_north_phone}}","kind":"MANUAL_ONLY"},
+        {"key":"stamp.community","placeholder":"{{stamp.community}}","kind":"STAMP"}, {"key":"signature.investigator","placeholder":"{{signature.investigator}}","kind":"SIGNATURE"}
+      ]
+    },
+    {
+      "material_code":"11","name":"建房公示","sort_order":11,"template":"11_public_notice.docx","output_name":"11_建房公示.docx",
+      "fields":[
+        {"key":"applicant.administrative_village","placeholder":"{{applicant.administrative_village}}","kind":"AUTO","empty_text":"        "}, {"key":"applicant.natural_village","placeholder":"{{applicant.natural_village}}","kind":"AUTO","empty_text":"        "},
+        {"key":"applicant.name","placeholder":"{{applicant.name}}","kind":"AUTO","empty_text":"       "}, {"key":"house.application_reason","placeholder":"{{house.application_reason}}","kind":"AUTO","empty_text":"                "},
+        {"key":"house.build_type","placeholder":"{{house.build_type}}","kind":"AUTO","empty_text":"新建、翻建、改扩建"}, {"key":"house.address","placeholder":"{{house.address}}","kind":"AUTO","empty_text":"                "},
+        {"key":"house.floors","placeholder":"{{house.floors}}","kind":"AUTO","empty_text":"  "},
+        {"key":"house.length","placeholder":"{{house.length}}","kind":"AUTO","formatter":"number","empty_text":"  "}, {"key":"house.width","placeholder":"{{house.width}}","kind":"AUTO","formatter":"number","empty_text":"  "},
+        {"key":"house.height","placeholder":"{{house.height}}","kind":"AUTO","formatter":"number","empty_text":"  "}, {"key":"house.building_area","placeholder":"{{house.building_area}}","kind":"AUTO","formatter":"number","empty_text":"     "},
+        {"key":"house.roof_type","placeholder":"{{house.roof_type}}","kind":"AUTO","empty_text":"       "}, {"key":"public_notice.contact_person","placeholder":"{{public_notice.contact_person}}","kind":"AUTO","empty_text":"       "},
+        {"key":"public_notice.contact_phone","placeholder":"{{public_notice.contact_phone}}","kind":"AUTO","empty_text":"           "}, {"key":"public_notice.village_committee_name","placeholder":"{{public_notice.village_committee_name}}","kind":"AUTO","empty_text":"                        "},
+        {"key":"public_notice.notice_date","placeholder":"{{public_notice.notice_date}}","kind":"AUTO","formatter":"notice_date","empty_text":"    年  月  日"}
+      ]
+    }
+  ]
+}
