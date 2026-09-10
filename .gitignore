@@ -6,8 +6,10 @@ __pycache__/
 htmlcov/
 build/
 dist/
+tmp/
+resource/
+*.egg-info/
 installer/output/
 runtime/libreoffice/
 runtime/downloads/
 *.log
-
