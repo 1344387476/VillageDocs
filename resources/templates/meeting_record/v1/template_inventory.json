@@ -1,0 +1,51 @@
+{
+  "template_id": "standard_meeting_record",
+  "template_version": 1,
+  "generated_by": "tools/prepare_meeting_templates.py",
+  "files": {
+    "resources/templates/meeting_record/v1/source/page-1-reference.jpg": {
+      "sha256": "2196171a328d7708ac8a9bb07e3f93a2c007adf7b622872cde439ff2f4c04bed",
+      "bytes": 90157
+    },
+    "resources/templates/meeting_record/v1/source/page-2-reference.jpg": {
+      "sha256": "c3245bb5c0120c364a38316c525ba88fa7f4c8edb43eb3cc83f8afd8b4e0f547",
+      "bytes": 72229
+    },
+    "resources/templates/meeting_record/v1/template.json": {
+      "sha256": "004ea49cd02e994b2cf49fef62b658c30ff81fc5ea1dd789de3a3842eac2ccbe",
+      "bytes": 4628
+    },
+    "resources/templates/meeting_record/v1/first_page.pdf": {
+      "sha256": "2dfe38e4c970ae2661c97170876086169cf7750f9a796749bc040eadc1e8177e",
+      "bytes": 19665
+    },
+    "resources/templates/meeting_record/v1/continuation_page.pdf": {
+      "sha256": "9c2a52a538a0f3b3da420172b41bccadc47468ac3cfc9c809d343b60afade84e",
+      "bytes": 1708
+    },
+    "resources/templates/meeting_record/v1/thumbnail.png": {
+      "sha256": "9979301be1685c865b4190711e6e0a4067713140f0f6da1b743206c953fe38e8",
+      "bytes": 5330
+    },
+    "resources/fonts/handwriting/LXGWWenKaiGBLite-Regular.ttf": {
+      "sha256": "1675c708cce181871d9a8adc987f35a0cabc6ff980685cd99f05d2655ea08c4c",
+      "bytes": 14116284
+    },
+    "resources/fonts/handwriting/OFL.txt": {
+      "sha256": "96b4e277f74412568e53ec799a1f3d1c839a23def5bba640af9243045756653e",
+      "bytes": 5178
+    },
+    "tools/assets/fonts/NotoSerifSC[wght].ttf": {
+      "sha256": "050080d9255a86808f2945bffac582b31ef32bc36411ce29563b4961670c66f9",
+      "bytes": 25125512
+    },
+    "tools/assets/fonts/OFL-NotoSerifSC.txt": {
+      "sha256": "5e0da210fb04058a8c0087985d2d456b931c2579811a49655721d3cf0c36b6d6",
+      "bytes": 4350
+    },
+    "resources/fonts/print/OFL-NotoSerifSC.txt": {
+      "sha256": "5e0da210fb04058a8c0087985d2d456b931c2579811a49655721d3cf0c36b6d6",
+      "bytes": 4350
+    }
+  }
+}

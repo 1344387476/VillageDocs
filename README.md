@@ -1,6 +1,9 @@
 # 村务材料管理 V1
 
-Windows 本地桌面工具，用于一次录入村民建房信息、填写固定 Word 母版、整理外部附件，并按用户选择输出单一 Word 或 PDF。
+Windows 本地桌面工具，包含两个相互独立的顶级模块：
+
+- “村建材料”用于录入建房信息、填写固定 Word 母版、整理附件并输出 Word 或 PDF。
+- “会议记录”用于选择记录纸模板、录入会议内容，并输出带自然手写效果的 PDF；固定标签和表格线保持矢量印刷效果。
 
 ## 重要业务约束
 
@@ -14,7 +17,8 @@ Windows 本地桌面工具，用于一次录入村民建房信息、填写固定
 1. 使用 Python 3.11–3.13 运行 `scripts\bootstrap.ps1`。
 2. 将 LibreOffice 的 Windows x64 程序目录放到 `runtime\libreoffice`，确保存在 `program\soffice.exe`。
 3. 运行 `scripts\prepare_templates.ps1` 规范化母版并建立占位符。
-4. 运行 `scripts\run.ps1`。
+4. 运行 `python tools\prepare_meeting_templates.py` 重建会议记录矢量模板和缩略图。
+5. 运行 `scripts\run.ps1`。
 
 应用启动时会在程序所在目录自动创建 `resource` 文件夹，并在其中创建 `data`、`projects`、`exports` 和 `logs`。最终 Word/PDF 直接保存到 `resource` 根目录；SQLite 只记录相对路径。程序不再要求用户首次启动时选择目录。
 

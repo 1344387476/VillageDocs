@@ -11,5 +11,7 @@
 - pillow-heif（BSD-3-Clause）
 - ReportLab（BSD）
 - Send2Trash（BSD）
+- 霞鹜文楷 GB 轻便版（SIL Open Font License 1.1；许可文本见 resources/fonts/handwriting/OFL.txt）
+- Noto Serif SC（SIL Open Font License 1.1；仅用于构建内置矢量模板；许可文本见 resources/fonts/print/OFL-NotoSerifSC.txt）
 
 应用本身不向外部服务上传用户数据，不包含遥测或在线账户功能。

@@ -35,6 +35,12 @@ def keep_runtime_data(entry):
     return True
 
 a.datas = [entry for entry in a.datas if keep_runtime_data(entry)]
+blocked_runtime_dlls = {"icuuc.dll", "icudt78.dll"}
+a.binaries = [
+    entry
+    for entry in a.binaries
+    if Path(entry[0]).name.lower() not in blocked_runtime_dlls
+]
 pyz = PYZ(a.pure)
 exe = EXE(
     pyz,
@@ -42,6 +48,7 @@ exe = EXE(
     [],
     exclude_binaries=True,
     name="村务材料管理",
+    icon=str(root / "resources" / "icons" / "villagedocs-icon.ico"),
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

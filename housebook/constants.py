@@ -30,6 +30,7 @@ class MaterialModuleDefinition:
 
 MATERIAL_MODULES: tuple[MaterialModuleDefinition, ...] = (
     MaterialModuleDefinition("village_house", "村建材料", "村民建房报备材料自动填写、附件整理与成册"),
+    MaterialModuleDefinition("meeting_record", "会议记录", "按标准记录纸录入内容并生成手写效果 PDF"),
 )
 MATERIAL_MODULE_BY_CODE = {item.code: item for item in MATERIAL_MODULES}
 

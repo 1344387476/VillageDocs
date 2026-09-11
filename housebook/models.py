@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass, field
 from datetime import datetime
 from typing import Any
+import secrets
 
 
 def village_committee_name(value: str) -> str:
@@ -141,3 +142,27 @@ class ProjectSnapshot:
             "public_notice": public_notice,
         }
         return context
+
+
+@dataclass(slots=True)
+class MeetingRecordSnapshot:
+    id: str
+    material_type: str = "meeting_record"
+    status: str = "draft"
+    created_at: str = field(default_factory=lambda: datetime.now().isoformat(timespec="seconds"))
+    updated_at: str = field(default_factory=lambda: datetime.now().isoformat(timespec="seconds"))
+    output_pdf_path: str = ""
+    meeting_name: str = ""
+    meeting_time: str = ""
+    location: str = ""
+    expected_count: int | None = None
+    actual_count: int | None = None
+    participants: str = ""
+    observers: str = ""
+    chairperson: str = ""
+    recorder: str = ""
+    topic: str = ""
+    content: str = ""
+    template_id: str = "standard_meeting_record"
+    template_version: int = 1
+    handwriting_seed: int = field(default_factory=lambda: secrets.randbits(63))

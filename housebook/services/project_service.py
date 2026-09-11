@@ -5,7 +5,7 @@ from pathlib import Path
 
 from send2trash import send2trash
 
-from ..models import ProjectSnapshot
+from ..models import MeetingRecordSnapshot, ProjectSnapshot
 from ..repository import ProjectRepository
 
 
@@ -32,6 +32,17 @@ class ProjectService:
         snapshot = self.repository.create_project(material_type)
         root = self.project_dir(snapshot.id)
         for folder in ("attachments", "generated", "temp"):
+            (root / folder).mkdir(parents=True, exist_ok=True)
+        return snapshot
+
+    def create_meeting_record(
+        self,
+        template_id: str = "standard_meeting_record",
+        template_version: int = 1,
+    ) -> MeetingRecordSnapshot:
+        snapshot = self.repository.create_meeting_record(template_id, template_version)
+        root = self.project_dir(snapshot.id)
+        for folder in ("generated", "temp"):
             (root / folder).mkdir(parents=True, exist_ok=True)
         return snapshot
 

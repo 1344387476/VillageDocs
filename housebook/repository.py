@@ -9,10 +9,13 @@ from datetime import datetime
 from pathlib import Path
 from typing import Iterator
 
-from .models import Applicant, Attachment, ExistingHouse, FamilyMember, ProjectSnapshot, ProposedHouse, PublicNotice
+from .models import (
+    Applicant, Attachment, ExistingHouse, FamilyMember, MeetingRecordSnapshot,
+    ProjectSnapshot, ProposedHouse, PublicNotice,
+)
 
 
-SCHEMA_VERSION = 3
+SCHEMA_VERSION = 4
 
 
 class ProjectRepository:
@@ -68,6 +71,10 @@ class ProjectRepository:
                     project_id TEXT PRIMARY KEY REFERENCES project(id) ON DELETE CASCADE,
                     payload TEXT NOT NULL
                 );
+                CREATE TABLE IF NOT EXISTS meeting_record(
+                    project_id TEXT PRIMARY KEY REFERENCES project(id) ON DELETE CASCADE,
+                    payload TEXT NOT NULL
+                );
                 CREATE TABLE IF NOT EXISTS attachment(
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     project_id TEXT NOT NULL REFERENCES project(id) ON DELETE CASCADE,
@@ -98,6 +105,11 @@ class ProjectRepository:
             if current < 3:
                 self._add_column(db, "project", "material_type", "TEXT NOT NULL DEFAULT 'village_house'")
                 db.execute("UPDATE project SET material_type='village_house' WHERE material_type='' OR material_type IS NULL")
+            if current < 4:
+                db.execute(
+                    "CREATE TABLE IF NOT EXISTS meeting_record("
+                    "project_id TEXT PRIMARY KEY REFERENCES project(id) ON DELETE CASCADE,payload TEXT NOT NULL)"
+                )
             if current < SCHEMA_VERSION:
                 db.execute("UPDATE schema_version SET version=?", (SCHEMA_VERSION,))
 
@@ -111,6 +123,22 @@ class ProjectRepository:
         now = datetime.now().isoformat(timespec="seconds")
         snapshot = ProjectSnapshot(id=str(uuid.uuid4()), material_type=material_type, created_at=now, updated_at=now)
         self.save(snapshot)
+        return snapshot
+
+    def create_meeting_record(
+        self,
+        template_id: str = "standard_meeting_record",
+        template_version: int = 1,
+    ) -> MeetingRecordSnapshot:
+        now = datetime.now().isoformat(timespec="seconds")
+        snapshot = MeetingRecordSnapshot(
+            id=str(uuid.uuid4()),
+            created_at=now,
+            updated_at=now,
+            template_id=template_id,
+            template_version=template_version,
+        )
+        self.save_meeting_record(snapshot)
         return snapshot
 
     def save(self, snapshot: ProjectSnapshot) -> None:
@@ -133,6 +161,36 @@ class ProjectRepository:
                     "INSERT INTO family_member(project_id,sort_order,payload) VALUES(?,?,?)",
                     (snapshot.id, index, self._json(asdict(member))),
                 )
+
+    def save_meeting_record(self, snapshot: MeetingRecordSnapshot) -> None:
+        snapshot.updated_at = datetime.now().isoformat(timespec="seconds")
+        payload = asdict(snapshot)
+        for key in (
+            "id", "material_type", "status", "created_at", "updated_at", "output_pdf_path"
+        ):
+            payload.pop(key, None)
+        with self.connection() as db:
+            existing = db.execute(
+                "SELECT payload FROM meeting_record WHERE project_id=?", (snapshot.id,)
+            ).fetchone()
+            if existing is not None:
+                locked = json.loads(existing[0])
+                if (
+                    locked.get("template_id") != snapshot.template_id
+                    or int(locked.get("template_version", 0)) != snapshot.template_version
+                ):
+                    raise ValueError("会议记录创建后不能更换模板，请新建记录")
+            db.execute(
+                "INSERT INTO project(id,material_type,status,created_at,updated_at,output_pdf_path,output_docx_path,last_output_format) "
+                "VALUES(?,?,?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET "
+                "material_type=excluded.material_type,status=excluded.status,updated_at=excluded.updated_at,"
+                "output_pdf_path=excluded.output_pdf_path,last_output_format=excluded.last_output_format",
+                (
+                    snapshot.id, snapshot.material_type, snapshot.status, snapshot.created_at,
+                    snapshot.updated_at, snapshot.output_pdf_path, "", "pdf" if snapshot.output_pdf_path else "",
+                ),
+            )
+            self._upsert_payload(db, "meeting_record", snapshot.id, payload)
 
     @staticmethod
     def _json(payload: dict) -> str:
@@ -163,6 +221,25 @@ class ProjectRepository:
                 public_notice=PublicNotice(**payload("public_notice")), attachments=attachments,
             )
 
+    def load_meeting_record(self, project_id: str) -> MeetingRecordSnapshot:
+        with self.connection() as db:
+            project = db.execute(
+                "SELECT * FROM project WHERE id=? AND material_type='meeting_record'", (project_id,)
+            ).fetchone()
+            if project is None:
+                raise KeyError(project_id)
+            row = db.execute(
+                "SELECT payload FROM meeting_record WHERE project_id=?", (project_id,)
+            ).fetchone()
+            if row is None:
+                raise KeyError(project_id)
+            payload = json.loads(row[0])
+            return MeetingRecordSnapshot(
+                id=project["id"], material_type=project["material_type"], status=project["status"],
+                created_at=project["created_at"], updated_at=project["updated_at"],
+                output_pdf_path=project["output_pdf_path"], **payload,
+            )
+
     def list_projects(self, search: str = "", material_type: str = "village_house") -> list[ProjectSnapshot]:
         with self.connection() as db:
             rows = db.execute(
@@ -171,6 +248,19 @@ class ProjectRepository:
                 (material_type, search, f"%{search}%"),
             ).fetchall()
         return [self.load(row[0]) for row in rows]
+
+    def list_meeting_records(self, search: str = "") -> list[MeetingRecordSnapshot]:
+        like = f"%{search}%"
+        with self.connection() as db:
+            rows = db.execute(
+                "SELECT p.id FROM project p JOIN meeting_record m ON m.project_id=p.id "
+                "WHERE p.material_type='meeting_record' AND "
+                "(?='' OR json_extract(m.payload,'$.meeting_name') LIKE ? "
+                "OR json_extract(m.payload,'$.meeting_time') LIKE ? "
+                "OR json_extract(m.payload,'$.topic') LIKE ?) ORDER BY p.updated_at DESC",
+                (search, like, like, like),
+            ).fetchall()
+        return [self.load_meeting_record(row[0]) for row in rows]
 
     def add_attachment(self, attachment: Attachment) -> int:
         with self.connection() as db:
